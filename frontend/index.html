@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0e13">
+  <title>GrowSight — AI Website Growth Auditor</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="logo">↗</span> GrowSight</a>
+    <span class="pill"><i></i> Gemma · Local AI</span>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="eyebrow">WEBSITE GROWTH INTELLIGENCE</div>
+      <h1>Make your website<br><em>work harder.</em></h1>
+      <p class="lede">Paste your business website. Get a visual review, specific changes to make, and feature ideas that may help turn more visitors into customers.</p>
+      <form id="audit-form" class="url-form">
+        <span class="link-symbol">↗</span>
+        <label class="sr-only" for="url">Website URL</label>
+        <input id="url" type="text" placeholder="https://yourbusiness.com" required autocomplete="url">
+        <button id="submit" type="submit">Audit website <span>→</span></button>
+      </form>
+      <div class="options">
+        <label><input id="use-ai" type="checkbox" checked> Use Gemma AI</label>
+        <label><input id="use-vision" type="checkbox" checked> Analyze screenshots with vision</label>
+      </div>
+      <p class="privacy">Gemma runs through your local Ollama installation. Scanning a public website still requires internet access.</p>
+    </section>
+
+    <section id="status" class="status hidden" aria-live="polite">
+      <div id="spinner" class="spinner"></div>
+      <div><strong id="status-title">Analyzing…</strong><p id="status-message">Scanning page structure and screenshots.</p></div>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div class="results-head">
+        <div><div class="eyebrow">AUDIT REPORT</div><h2>What to improve</h2><p id="scanned-url" class="muted"></p></div>
+        <button id="download" class="outline-button">Export JSON ↓</button>
+      </div>
+      <div id="ai-status" class="ai-status"></div>
+      <div class="summary"><div class="summary-label">GROWSIGHT SUMMARY</div><p id="summary-text"></p></div>
+
+      <div class="section-head"><h3>Visual evidence</h3><span class="muted">Captured by Playwright</span></div>
+      <div class="shots">
+        <figure><img id="desktop" alt="Desktop screenshot"><figcaption>Desktop</figcaption></figure>
+        <figure><img id="mobile" alt="Mobile screenshot"><figcaption>Mobile</figcaption></figure>
+      </div>
+
+      <div class="section-head"><h3>Recommended changes</h3><span id="opportunity-count" class="muted"></span></div>
+      <div id="opportunities" class="cards"></div>
+
+      <div class="section-head"><h3>Features worth considering</h3></div>
+      <div id="features" class="feature-list"></div>
+
+      <div id="questions-wrap" class="questions hidden"><h3>Questions for the business owner</h3><ul id="questions"></ul></div>
+      <div id="warnings" class="warnings hidden"></div>
+      <p class="disclaimer">These recommendations are hypotheses, not guaranteed revenue gains. Validate them using real customer feedback, analytics, and experiments.</p>
+    </section>
+
+    <section class="how">
+      <div class="eyebrow">HOW IT WORKS</div><h2>From website URL to clear next steps.</h2>
+      <div class="steps">
+        <article><b>01</b><h3>Scan</h3><p>Capture desktop and mobile screenshots, page structure, links, headings, and calls to action.</p></article>
+        <article><b>02</b><h3>Understand</h3><p>Gemma reviews the evidence and can inspect screenshots with its vision capability.</p></article>
+        <article><b>03</b><h3>Improve</h3><p>Get prioritized changes, feature ideas, effort estimates, and success metrics to test.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer><span>GrowSight · Open-weight AI, local inference</span><span>Prototype v1.0</span></footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>
